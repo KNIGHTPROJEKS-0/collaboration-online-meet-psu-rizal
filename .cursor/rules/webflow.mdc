@@ -1,0 +1,67 @@
+---
+alwaysApply: true
+---
+# Webflow Integration Rule for Cursor
+
+## Purpose
+
+This rule defines the integration between Cursor and Webflow for the Collaboration Online Meet project. It ensures all Webflow-related operations are performed through the MCP server for consistency, security, and traceability.
+
+## Webflow CLI Commands
+
+Cursor should use the Webflow CLI for all Webflow operations:
+
+1. `webflow login` - Authenticate with Webflow
+2. `webflow sites list` - List available Webflow sites
+3. `webflow sites pull <site-id>` - Pull site data from Webflow
+4. `webflow sites push <site-id>` - Push site changes to Webflow
+5. `webflow cms pull <site-id>` - Pull CMS data from Webflow
+6. `webflow cms push <site-id>` - Push CMS changes to Webflow
+
+## MCP Server Integration
+
+All Webflow operations must go through the MCP server:
+
+1. Before any Webflow operation, Cursor must call the MCP server to:
+   - Validate user permissions
+   - Log the operation for audit purposes
+   - Retrieve the latest Webflow assets
+
+2. After any Webflow operation, Cursor must call the MCP server to:
+   - Report operation status
+   - Sync any changes with the project repository
+   - Update audit logs
+
+## Design System Compliance
+
+When working with Webflow components:
+
+1. Only use components from the official PSU-Rizal Webflow workspace
+2. Maintain consistency with the existing design system
+3. Follow responsive design principles
+4. Ensure accessibility compliance
+
+## Deployment Workflow
+
+1. All changes must be tested locally first
+2. Use `webflow sites pull` to get the latest site data
+3. Make required changes in the local environment
+4. Call MCP server to validate changes
+5. Use `webflow sites push` to deploy changes
+6. Verify deployment through the MCP server
+
+## Error Handling
+
+If any Webflow operation fails:
+
+1. Log the error through the MCP server
+2. Attempt to rollback changes if necessary
+3. Notify the user of the failure
+4. Provide guidance on next steps
+
+## Security
+
+1. Never expose Webflow API keys in code or logs
+2. Always use the MCP server for authentication
+3. Validate all user inputs before Webflow operations
+4. Regularly rotate API keys through the MCP server

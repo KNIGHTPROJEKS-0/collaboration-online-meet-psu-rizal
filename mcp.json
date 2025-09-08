@@ -1,0 +1,72 @@
+{
+  "mcp": {
+    "server": {
+      "url": "https://mcp.psucollegeofengineering.online",
+      "timeout": 30000
+    },
+    "integrations": {
+      "webflow": {
+        "enabled": true,
+        "apiVersion": "v1",
+        "endpoints": {
+          "auth": "/api/webflow/auth",
+          "sites": "/api/webflow/sites",
+          "cms": "/api/webflow/cms",
+          "deploy": "/api/webflow/deploy"
+        },
+        "permissions": {
+          "read": true,
+          "write": true,
+          "deploy": true
+        }
+      },
+      "figma": {
+        "enabled": true,
+        "apiVersion": "v1",
+        "endpoints": {
+          "auth": "/api/figma/auth",
+          "files": "/api/figma/files",
+          "components": "/api/figma/components",
+          "styles": "/api/figma/styles"
+        },
+        "permissions": {
+          "read": true,
+          "write": false
+        }
+      }
+    },
+    "logging": {
+      "enabled": true,
+      "level": "info",
+      "endpoint": "/api/logs"
+    },
+    "backup": {
+      "enabled": true,
+      "endpoint": "/api/backup",
+      "schedule": "0 2 * * *"
+    }
+  },
+  "webflow": {
+    "cli": {
+      "version": "1.8.40",
+      "commands": {
+        "login": "webflow login",
+        "sites": "webflow sites",
+        "cms": "webflow cms",
+        "designer": "webflow designer"
+      }
+    },
+    "sites": {
+      "primary": {
+        "id": "psu-rizal-com",
+        "name": "PSU Rizal Collaboration Platform",
+        "url": "https://psu-rizal-colab.webflow.io"
+      },
+      "staging": {
+        "id": "psu-rizal-com-staging",
+        "name": "PSU Rizal Collaboration Platform - Staging",
+        "url": "https://psu-rizal-colab-staging.webflow.io"
+      }
+    }
+  }
+}

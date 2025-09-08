@@ -1,0 +1,43 @@
+{
+  "cursor": {
+    "integrations": {
+      "webflow": {
+        "enabled": true,
+        "mcpIntegration": true,
+        "defaultSite": "psu-rizal-com",
+        "syncOnSave": true,
+        "autoDeploy": false,
+        "previewUrl": "https://psu-rizal-colab.webflow.io",
+        "stagingUrl": "https://psu-rizal-colab-staging.webflow.io"
+      }
+    },
+    "rules": {
+      "enforceMCP": true,
+      "requireApproval": false,
+      "logAllActions": true
+    },
+    "webflow-cli": {
+      "path": "./node_modules/.bin/webflow",
+      "autoInstall": true
+    },
+    "design": {
+      "figma": {
+        "enabled": true,
+        "mcpIntegration": true,
+        "workspace": "psu-rizal-design",
+        "autoSync": true
+      }
+    }
+  },
+  "mcp": {
+    "serverUrl": "https://mcp.psucollegeofengineering.online",
+    "authMethod": "token",
+    "retryAttempts": 3,
+    "timeout": 30000
+  },
+  "development": {
+    "localPreview": true,
+    "hotReload": true,
+    "debugMode": false
+  }
+}
