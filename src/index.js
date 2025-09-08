@@ -1,15 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Suspense, lazy } from 'react';
+import { createRoot } from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { sendToVercelAnalytics } from './vitals';
-
-ReactDOM.render(
+const App = lazy(() => import('./App'));
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <Suspense fallback={<div />}> 
+      <App />
+    </Suspense>
+  </React.StrictMode>
 );
 
-reportWebVitals(sendToVercelAnalytics);
+if (process.env.NODE_ENV === 'production' && process.env.REACT_APP_VERCEL_ANALYTICS_ID) {
+  reportWebVitals(sendToVercelAnalytics);
+}
