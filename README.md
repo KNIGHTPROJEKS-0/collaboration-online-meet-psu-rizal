@@ -171,7 +171,8 @@ See our detailed analysis of what Cursor has implemented vs. what was orchestrat
 ├── docs/               # Documentation and guidelines
 │   ├── cursor-webflow-integration.md  # Integration guide
 │   ├── cursor-implementation-analysis.md  # Analysis of Cursor's implementation
-│   └── refined-requirements.md  # Refined project requirements
+│   ├── refined-requirements.md  # Refined project requirements
+│   └── video-conference-implementation.md  # Video conference implementation details
 ├── .cursor/            # Cursor AI configuration
 │   └── rules/          # Cursor rules for MCP/Webflow integration
 ├── .cursorignore       # Files/folders ignored by Cursor/AI-IDE
